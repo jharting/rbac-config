@@ -90,3 +90,17 @@ public extension add_contingent_permission(first, second, contingent) {
         relation `${contingent}`: `${first}` and `${second}`
     }
 }
+
+public extension add_tenant_level_permission(perm) {
+    type role {
+        relation `${perm}`: [bool]
+    }
+
+    type role_binding {
+        relation `${perm}`: subject and role.`${perm}`
+    }
+
+    type tenant {
+        relation `${perm}`: binding.`${perm}`
+    }
+}

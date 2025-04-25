@@ -1,0 +1,6 @@
+version 0.1
+namespace config_manager
+
+import rbac
+
+@rbac.add_tenant_level_permission(perm:'config_manager_profile_view');
